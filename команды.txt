@@ -1,0 +1,8 @@
+Соберите Docker-образ:
+bash
+Copy code
+docker build -t my_project .
+Запустите контейнер:
+bash
+Copy code
+docker run -it my_project
