@@ -1,0 +1,18 @@
+# Используем базовый образ с поддержкой C++ и Boost
+FROM leimao/boost:1.80.0
+
+# Устанавливаем рабочий каталог
+WORKDIR /usr/src/my_project
+
+# Expose the port on which the server will run
+EXPOSE 8080
+
+# Копируем исходный код в контейнер
+COPY . .
+
+# Создаем и собираем приложение
+RUN cmake -S . -B build
+RUN cmake --build build
+
+# Запускаем сервер при старте контейнера
+CMD ["./build/server/server"]
